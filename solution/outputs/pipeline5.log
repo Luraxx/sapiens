@@ -1,0 +1,566 @@
+2026-04-18 00:02:49,660 INFO __main__: ============================================================
+2026-04-18 00:02:49,661 INFO __main__:   Deforestation Detection Pipeline
+2026-04-18 00:02:49,661 INFO __main__: ============================================================
+2026-04-18 00:02:49,695 INFO __main__: Train tiles: 16 | Test tiles: 5
+2026-04-18 00:02:49,695 INFO __main__: 
+── Step 2: Feature Engineering & Label Fusion ──
+2026-04-18 00:02:49,695 INFO __main__: [1/16] Processing 18NWG_6_6
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:03:13,056 INFO __main__:   18NWG_6_6: 77 features, shape (1002, 1002)
+2026-04-18 00:03:13,159 INFO __main__:   18NWG_6_6: fused label — 269764/1004004 positive (26.87%)
+2026-04-18 00:03:13,195 INFO __main__:   Sampled 100400 pixels (26951 positive)
+2026-04-18 00:03:13,210 INFO __main__: [2/16] Processing 18NWH_1_4
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:03:35,917 INFO __main__:   18NWH_1_4: 77 features, shape (1002, 1002)
+2026-04-18 00:03:36,029 INFO __main__:   18NWH_1_4: fused label — 13673/1004004 positive (1.36%)
+2026-04-18 00:03:36,060 INFO __main__:   Sampled 100400 pixels (1357 positive)
+2026-04-18 00:03:36,075 INFO __main__: [3/16] Processing 18NWJ_8_9
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:03:59,055 INFO __main__:   18NWJ_8_9: 77 features, shape (1002, 1002)
+2026-04-18 00:03:59,169 INFO __main__:   18NWJ_8_9: fused label — 37560/1004004 positive (3.74%)
+2026-04-18 00:03:59,201 INFO __main__:   Sampled 100400 pixels (3754 positive)
+2026-04-18 00:03:59,215 INFO __main__: [4/16] Processing 18NWM_9_4
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:04:00,701 INFO __main__:   18NWM_9_4: 77 features, shape (1004, 2)
+2026-04-18 00:04:00,717 INFO __main__:   18NWM_9_4: fused label — 0/2008 positive (0.00%)
+2026-04-18 00:04:00,717 INFO __main__:   Sampled 200 pixels (0 positive)
+2026-04-18 00:04:00,732 INFO __main__: [5/16] Processing 18NXH_6_8
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:04:23,391 INFO __main__:   18NXH_6_8: 77 features, shape (1002, 1002)
+2026-04-18 00:04:23,508 INFO __main__:   18NXH_6_8: fused label — 228456/1004004 positive (22.75%)
+2026-04-18 00:04:23,540 INFO __main__:   Sampled 100400 pixels (22937 positive)
+2026-04-18 00:04:23,555 INFO __main__: [6/16] Processing 18NXJ_7_6
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:04:45,603 INFO __main__:   18NXJ_7_6: 77 features, shape (1004, 1004)
+2026-04-18 00:04:45,722 INFO __main__:   18NXJ_7_6: fused label — 10984/1008016 positive (1.09%)
+2026-04-18 00:04:45,754 INFO __main__:   Sampled 100801 pixels (1010 positive)
+2026-04-18 00:04:45,770 INFO __main__: [7/16] Processing 18NYH_9_9
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:04:47,246 INFO __main__:   18NYH_9_9: 77 features, shape (6, 4)
+2026-04-18 00:04:47,262 INFO __main__:   18NYH_9_9: fused label — 0/24 positive (0.00%)
+2026-04-18 00:04:47,263 INFO __main__:   Sampled 2 pixels (0 positive)
+2026-04-18 00:04:47,279 INFO __main__: [8/16] Processing 19NBD_4_4
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:05:05,111 INFO __main__:   19NBD_4_4: 77 features, shape (1006, 1006)
+2026-04-18 00:05:05,221 INFO __main__:   19NBD_4_4: fused label — 52776/1012036 positive (5.21%)
+2026-04-18 00:05:05,253 INFO __main__:   Sampled 101203 pixels (5153 positive)
+2026-04-18 00:05:05,267 INFO __main__: [9/16] Processing 47QMB_0_8
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:05:32,432 INFO __main__:   47QMB_0_8: 77 features, shape (1012, 986)
+2026-04-18 00:05:32,516 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_47QMB_0_8_alert.tif: No such file or directory'
+2026-04-18 00:05:32,551 INFO __main__:   47QMB_0_8: fused label — 514/997832 positive (0.05%)
+2026-04-18 00:05:32,591 INFO __main__:   Sampled 99783 pixels (61 positive)
+2026-04-18 00:05:32,607 INFO __main__: [10/16] Processing 47QQV_2_4
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:06:01,456 INFO __main__:   47QQV_2_4: 77 features, shape (1024, 1023)
+2026-04-18 00:06:01,547 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_47QQV_2_4_alert.tif: No such file or directory'
+2026-04-18 00:06:01,585 INFO __main__:   47QQV_2_4: fused label — 327/1047552 positive (0.03%)
+2026-04-18 00:06:01,628 INFO __main__:   Sampled 104755 pixels (38 positive)
+2026-04-18 00:06:01,643 INFO __main__: [11/16] Processing 48PUT_0_8
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:06:29,125 INFO __main__:   48PUT_0_8: 77 features, shape (1012, 1006)
+2026-04-18 00:06:29,202 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_48PUT_0_8_alert.tif: No such file or directory'
+2026-04-18 00:06:29,238 INFO __main__:   48PUT_0_8: fused label — 22152/1018072 positive (2.18%)
+2026-04-18 00:06:29,271 INFO __main__:   Sampled 101807 pixels (2264 positive)
+2026-04-18 00:06:29,286 INFO __main__: [12/16] Processing 48PWV_7_8
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:06:56,349 INFO __main__:   48PWV_7_8: 77 features, shape (1006, 1006)
+2026-04-18 00:06:56,436 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_48PWV_7_8_alert.tif: No such file or directory'
+2026-04-18 00:06:56,472 INFO __main__:   48PWV_7_8: fused label — 247684/1012036 positive (24.47%)
+2026-04-18 00:06:56,511 INFO __main__:   Sampled 101203 pixels (24783 positive)
+2026-04-18 00:06:56,526 INFO __main__: [13/16] Processing 48PXC_7_7
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:07:23,190 INFO __main__:   48PXC_7_7: 77 features, shape (1016, 1016)
+2026-04-18 00:07:23,303 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_48PXC_7_7_alert.tif: No such file or directory'
+2026-04-18 00:07:23,342 INFO __main__:   48PXC_7_7: fused label — 66287/1032256 positive (6.42%)
+2026-04-18 00:07:23,375 INFO __main__:   Sampled 103225 pixels (6602 positive)
+2026-04-18 00:07:23,394 INFO __main__: [14/16] Processing 48PYB_3_6
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:07:48,691 INFO __main__:   48PYB_3_6: 77 features, shape (1020, 1020)
+2026-04-18 00:07:48,790 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_48PYB_3_6_alert.tif: No such file or directory'
+2026-04-18 00:07:48,829 INFO __main__:   48PYB_3_6: fused label — 117790/1040400 positive (11.32%)
+2026-04-18 00:07:48,873 INFO __main__:   Sampled 104040 pixels (11721 positive)
+2026-04-18 00:07:48,888 INFO __main__: [15/16] Processing 48QVE_3_0
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:08:14,926 INFO __main__:   48QVE_3_0: 77 features, shape (1008, 1008)
+2026-04-18 00:08:15,006 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_48QVE_3_0_alert.tif: No such file or directory'
+2026-04-18 00:08:15,043 INFO __main__:   48QVE_3_0: fused label — 68081/1016064 positive (6.70%)
+2026-04-18 00:08:15,076 INFO __main__:   Sampled 101606 pixels (6855 positive)
+2026-04-18 00:08:15,092 INFO __main__: [16/16] Processing 48QWD_2_2
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:08:40,267 INFO __main__:   48QWD_2_2: 77 features, shape (1004, 1003)
+2026-04-18 00:08:40,350 INFO rasterio._env: GDAL signalled an error: err_no=4, msg='/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/data/makeathon-challenge/labels/train/glads2/glads2_48QWD_2_2_alert.tif: No such file or directory'
+2026-04-18 00:08:40,386 INFO __main__:   48QWD_2_2: fused label — 59729/1007012 positive (5.93%)
+2026-04-18 00:08:40,426 INFO __main__:   Sampled 100701 pixels (5992 positive)
+2026-04-18 00:08:40,501 INFO __main__: 
+Total training pixels: 1420926 (77 features)
+2026-04-18 00:08:40,501 INFO __main__: Positive rate: 0.0841
+2026-04-18 00:08:40,501 INFO __main__: 
+── Step 3: Training LightGBM ──
+2026-04-18 00:08:40,632 INFO __main__: Train: 1136740 | Val: 284186
+2026-04-18 00:09:29,002 INFO __main__: Model saved to /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/lgbm_model.pkl
+2026-04-18 00:09:31,356 INFO __main__: Validation: F1=0.8275 | Precision=0.8396 | Recall=0.8158
+2026-04-18 00:09:31,378 INFO __main__: 
+── Step 4: Inference on Test Tiles ──
+2026-04-18 00:09:31,378 INFO __main__: [1/5] Predicting 18NVJ_1_6
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:09:54,803 INFO __main__:   18NVJ_1_6: 77 features, shape (1002, 1002)
+2026-04-18 00:10:00,934 INFO solution.src.inference.predict: Saved prediction: /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/predictions/pred_18NVJ_1_6.tif
+2026-04-18 00:10:00,935 INFO __main__:   18NVJ_1_6: 0 deforestation pixels (0.00%)
+2026-04-18 00:10:00,963 INFO __main__: [2/5] Predicting 18NYH_2_1
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:10:23,964 INFO __main__:   18NYH_2_1: 77 features, shape (1004, 1004)
+2026-04-18 00:10:30,328 INFO solution.src.inference.predict: Saved prediction: /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/predictions/pred_18NYH_2_1.tif
+2026-04-18 00:10:30,329 INFO __main__:   18NYH_2_1: 53779 deforestation pixels (5.34%)
+2026-04-18 00:10:30,349 INFO __main__: [3/5] Predicting 33NTE_5_1
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:10:52,321 INFO __main__:   33NTE_5_1: 77 features, shape (1006, 1007)
+2026-04-18 00:10:58,491 INFO solution.src.inference.predict: Saved prediction: /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/predictions/pred_33NTE_5_1.tif
+2026-04-18 00:10:58,491 INFO __main__:   33NTE_5_1: 9057 deforestation pixels (0.89%)
+2026-04-18 00:10:58,512 INFO __main__: [4/5] Predicting 47QMA_6_2
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:19: RuntimeWarning: Mean of empty slice
+  "mean": np.nanmean(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:21: RuntimeWarning: All-NaN slice encountered
+  "min": np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:22: RuntimeWarning: All-NaN slice encountered
+  "max": np.nanmax(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:23: RuntimeWarning: All-NaN slice encountered
+  "median": np.nanmedian(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:24: RuntimeWarning: All-NaN slice encountered
+  "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:43: RuntimeWarning: Mean of empty slice
+  y_mean = np.nanmean(flat, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:44: RuntimeWarning: Mean of empty slice
+  cov = np.nanmean((x[:, None] - x_mean) * (flat - y_mean[None, :]), axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:64: RuntimeWarning: Mean of empty slice
+  base_mean = np.nanmean(baseline, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:65: RuntimeWarning: Mean of empty slice
+  post_mean = np.nanmean(post, axis=0)
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:70: RuntimeWarning: All-NaN slice encountered
+  "delta_min": np.nanmin(post, axis=0) - np.nanmin(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/src/features/temporal.py:71: RuntimeWarning: All-NaN slice encountered
+  "delta_max": np.nanmax(post, axis=0) - np.nanmax(baseline, axis=0),
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:11:20,841 INFO __main__:   47QMA_6_2: 77 features, shape (1004, 1005)
+2026-04-18 00:11:27,762 INFO solution.src.inference.predict: Saved prediction: /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/predictions/pred_47QMA_6_2.tif
+2026-04-18 00:11:27,763 INFO __main__:   47QMA_6_2: 0 deforestation pixels (0.00%)
+2026-04-18 00:11:27,783 INFO __main__: [5/5] Predicting 48PWA_0_6
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:214: RuntimeWarning: Mean of empty slice
+  pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
+2026-04-18 00:11:54,899 INFO __main__:   48PWA_0_6: 77 features, shape (1002, 977)
+2026-04-18 00:12:01,052 INFO solution.src.inference.predict: Saved prediction: /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/predictions/pred_48PWA_0_6.tif
+2026-04-18 00:12:01,053 INFO __main__:   48PWA_0_6: 11407 deforestation pixels (1.17%)
+2026-04-18 00:12:01,073 INFO __main__: 
+── Step 5: Generating Submission ──
+2026-04-18 00:12:01,076 WARNING solution.src.inference.submit:   pred_18NVJ_1_6: skipped — No deforestation pixels (value=1) found in /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/predictions/pred_18NVJ_1_6.tif. Ensure the raster has been binarised before calling this function.
+2026-04-18 00:12:01,150 INFO solution.src.inference.submit:   pred_18NYH_2_1: 122 polygons
+2026-04-18 00:12:01,193 INFO solution.src.inference.submit:   pred_33NTE_5_1: 36 polygons
+2026-04-18 00:12:01,196 WARNING solution.src.inference.submit:   pred_47QMA_6_2: skipped — No deforestation pixels (value=1) found in /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/predictions/pred_47QMA_6_2.tif. Ensure the raster has been binarised before calling this function.
+2026-04-18 00:12:01,241 INFO solution.src.inference.submit:   pred_48PWA_0_6: 68 polygons
+2026-04-18 00:12:01,256 INFO solution.src.inference.submit: Submission saved: /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/submissions/submission.geojson (226 total polygons)
+2026-04-18 00:12:01,256 INFO __main__: 
+Submission file: /Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/outputs/submissions/submission.geojson
+2026-04-18 00:12:01,256 INFO __main__: ============================================================
+2026-04-18 00:12:01,256 INFO __main__:   Pipeline complete!
+2026-04-18 00:12:01,256 INFO __main__: ============================================================
+Training until validation scores don't improve for 50 rounds
+[100]	train's binary_logloss: 0.0726409	val's binary_logloss: 0.0773396
+[200]	train's binary_logloss: 0.0635413	val's binary_logloss: 0.0732685
+[300]	train's binary_logloss: 0.0579306	val's binary_logloss: 0.0716707
+[400]	train's binary_logloss: 0.053429	val's binary_logloss: 0.0707229
+[500]	train's binary_logloss: 0.0496303	val's binary_logloss: 0.0699648
+[600]	train's binary_logloss: 0.0462137	val's binary_logloss: 0.0693601
+[700]	train's binary_logloss: 0.0430789	val's binary_logloss: 0.0688246
+[800]	train's binary_logloss: 0.0402911	val's binary_logloss: 0.0684056
+[900]	train's binary_logloss: 0.0376873	val's binary_logloss: 0.0680497
+[1000]	train's binary_logloss: 0.03528	val's binary_logloss: 0.0677429
+Did not meet early stopping. Best iteration is:
+[997]	train's binary_logloss: 0.0353407	val's binary_logloss: 0.0677369
