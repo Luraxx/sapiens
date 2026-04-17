@@ -207,13 +207,12 @@ def build_features_for_tile(
                 ref_transform, ref_crs, ref_shape,
                 Resampling.bilinear,
             )
-            # Use mean-pooled baseline embeddings as features (reduce 64→8)
-            group_size = 8
-            n_groups = aef_base_reproj.shape[0] // group_size
-            for g in range(n_groups):
-                pooled = np.nanmean(aef_base_reproj[g*group_size:(g+1)*group_size], axis=0)
-                feature_layers.append(np.nan_to_num(pooled, nan=0.0))
-                feature_names.append(f"aef_base_g{g}")
+            n_aef_dims = aef_base_reproj.shape[0]  # 64
+
+            # Full baseline embedding dims (64 features)
+            for d in range(n_aef_dims):
+                feature_layers.append(np.nan_to_num(aef_base_reproj[d], nan=0.0))
+                feature_names.append(f"aef_base_d{d}")
 
             # Change vs latest post year
             if post_years:
@@ -224,7 +223,14 @@ def build_features_for_tile(
                     ref_transform, ref_crs, ref_shape,
                     Resampling.bilinear,
                 )
-                # Cosine distance and L2 distance
+
+                # Full difference embedding (64 features)
+                diff = aef_post_reproj - aef_base_reproj
+                for d in range(n_aef_dims):
+                    feature_layers.append(np.nan_to_num(diff[d], nan=0.0))
+                    feature_names.append(f"aef_diff_d{d}")
+
+                # Cosine distance and L2 distance (scalar summaries)
                 dot = np.sum(aef_base_reproj * aef_post_reproj, axis=0)
                 norm_a = np.linalg.norm(aef_base_reproj, axis=0) + 1e-8
                 norm_b = np.linalg.norm(aef_post_reproj, axis=0) + 1e-8
@@ -285,8 +291,10 @@ def build_features_for_tile(
     CANONICAL_FEATURES.append("s1_vv_trend")
     for chg_name in ["mean_diff", "delta_min", "delta_max", "max_decrease"]:
         CANONICAL_FEATURES.append(f"s1_vv_{chg_name}")
-    for g in range(8):
-        CANONICAL_FEATURES.append(f"aef_base_g{g}")
+    for d in range(64):
+        CANONICAL_FEATURES.append(f"aef_base_d{d}")
+    for d in range(64):
+        CANONICAL_FEATURES.append(f"aef_diff_d{d}")
     CANONICAL_FEATURES.append("aef_cosine_dist")
     CANONICAL_FEATURES.append("aef_l2_dist")
     CANONICAL_FEATURES.append("aef_max_yoy_l2")
