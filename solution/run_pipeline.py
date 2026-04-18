@@ -138,23 +138,23 @@ def build_features_for_tile(
                     feature_layers.append(arr)
                     feature_names.append(f"s2_{idx_name}_{chg_name}")
 
-        # Raw band temporal features (mean, std, change)
+        # Raw band temporal features (full stats + trend + change)
         for bname in RAW_BAND_NAMES:
             all_raw = baseline_raw[bname] + post_raw[bname]
             if len(all_raw) < 2:
                 continue
             raw_ts = np.stack(all_raw, axis=0)
-            raw_mean = np.nanmean(raw_ts, axis=0)
-            raw_std = np.nanstd(raw_ts, axis=0)
-            feature_layers.append(np.nan_to_num(raw_mean, nan=0.0))
-            feature_names.append(f"s2_raw_{bname}_mean")
-            feature_layers.append(np.nan_to_num(raw_std, nan=0.0))
-            feature_names.append(f"s2_raw_{bname}_std")
+            stats = temporal_stats(raw_ts)
+            for stat_name, arr in stats.items():
+                feature_layers.append(np.nan_to_num(arr, nan=0.0))
+                feature_names.append(f"s2_raw_{bname}_{stat_name}")
+            feature_layers.append(np.nan_to_num(linear_trend(raw_ts), nan=0.0))
+            feature_names.append(f"s2_raw_{bname}_trend")
             if baseline_raw[bname] and post_raw[bname]:
-                base_mean = np.nanmean(np.stack(baseline_raw[bname]), axis=0)
-                post_mean = np.nanmean(np.stack(post_raw[bname]), axis=0)
-                feature_layers.append(np.nan_to_num(post_mean - base_mean, nan=0.0))
-                feature_names.append(f"s2_raw_{bname}_change")
+                chg = change_features(np.stack(baseline_raw[bname]), np.stack(post_raw[bname]))
+                for chg_name, arr in chg.items():
+                    feature_layers.append(np.nan_to_num(arr, nan=0.0))
+                    feature_names.append(f"s2_raw_{bname}_{chg_name}")
 
     # ── S1: backscatter temporal features ───────────────────────────
     if s1_steps:
@@ -275,21 +275,25 @@ def build_features_for_tile(
         return None
 
     # Ensure canonical feature order — always produce the same number of features
+    _STAT_NAMES = ["mean", "std", "min", "max", "median", "range", "p10", "p25", "p75", "p90"]
+    _CHG_NAMES  = ["delta_mean", "delta_ratio", "delta_min", "delta_max"]
     CANONICAL_FEATURES = []
     for idx_name in ["ndvi", "nbr", "ndmi", "evi"]:
-        for stat_name in ["mean", "std", "min", "max", "median", "range"]:
+        for stat_name in _STAT_NAMES:
             CANONICAL_FEATURES.append(f"s2_{idx_name}_{stat_name}")
         CANONICAL_FEATURES.append(f"s2_{idx_name}_trend")
-        for chg_name in ["mean_diff", "delta_min", "delta_max", "max_decrease"]:
+        for chg_name in _CHG_NAMES:
             CANONICAL_FEATURES.append(f"s2_{idx_name}_{chg_name}")
     for bname in ["red", "nir", "swir1", "swir2"]:
-        CANONICAL_FEATURES.append(f"s2_raw_{bname}_mean")
-        CANONICAL_FEATURES.append(f"s2_raw_{bname}_std")
-        CANONICAL_FEATURES.append(f"s2_raw_{bname}_change")
-    for stat_name in ["mean", "std", "min", "max", "median", "range"]:
+        for stat_name in _STAT_NAMES:
+            CANONICAL_FEATURES.append(f"s2_raw_{bname}_{stat_name}")
+        CANONICAL_FEATURES.append(f"s2_raw_{bname}_trend")
+        for chg_name in _CHG_NAMES:
+            CANONICAL_FEATURES.append(f"s2_raw_{bname}_{chg_name}")
+    for stat_name in _STAT_NAMES:
         CANONICAL_FEATURES.append(f"s1_vv_{stat_name}")
     CANONICAL_FEATURES.append("s1_vv_trend")
-    for chg_name in ["mean_diff", "delta_min", "delta_max", "max_decrease"]:
+    for chg_name in _CHG_NAMES:
         CANONICAL_FEATURES.append(f"s1_vv_{chg_name}")
     for d in range(64):
         CANONICAL_FEATURES.append(f"aef_base_d{d}")

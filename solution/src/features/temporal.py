@@ -15,13 +15,20 @@ def temporal_stats(time_series: np.ndarray) -> dict[str, np.ndarray]:
     Returns:
         Dict of statistic name → (H, W) array.
     """
+    # Single sort for all quantile-based stats (min, p10, p25, median, p75, p90, max)
+    _pcts = np.nanpercentile(time_series, [0, 10, 25, 50, 75, 90, 100], axis=0)
+    _min, _p10, _p25, _median, _p75, _p90, _max = _pcts
     return {
-        "mean": np.nanmean(time_series, axis=0),
-        "std": np.nanstd(time_series, axis=0),
-        "min": np.nanmin(time_series, axis=0),
-        "max": np.nanmax(time_series, axis=0),
-        "median": np.nanmedian(time_series, axis=0),
-        "range": np.nanmax(time_series, axis=0) - np.nanmin(time_series, axis=0),
+        "mean":   np.nanmean(time_series, axis=0),
+        "std":    np.nanstd(time_series, axis=0),
+        "min":    _min,
+        "max":    _max,
+        "median": _median,
+        "range":  _max - _min,
+        "p10":    _p10,
+        "p25":    _p25,
+        "p75":    _p75,
+        "p90":    _p90,
     }
 
 
