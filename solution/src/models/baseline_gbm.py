@@ -35,6 +35,7 @@ def train_lightgbm(
         "min_child_samples": 50,
         "subsample": 0.8,
         "colsample_bytree": 0.8,
+        "is_unbalance": True,
         "verbose": -1,
         "n_jobs": -1,
         "seed": 42,

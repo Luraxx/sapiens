@@ -11,12 +11,12 @@ def sample_pixels(
     sample_rate: float = 0.05,
     seed: int = 42,
 ) -> tuple[np.ndarray, np.ndarray]:
-    """Randomly sample pixels from a feature map for tabular training.
+    """Stratified sampling: keep ALL positive pixels, subsample negatives.
 
     Args:
         features: (C, H, W) feature array.
         labels:   (H, W) binary label array.
-        sample_rate: Fraction of pixels to sample.
+        sample_rate: Fraction of *negative* pixels to sample.
         seed: Random seed.
 
     Returns:
@@ -24,15 +24,20 @@ def sample_pixels(
         y: (N,) label vector.
     """
     C, H, W = features.shape
-    n_pixels = H * W
-    n_sample = max(1, int(n_pixels * sample_rate))
+    flat_feat = features.reshape(C, -1).T  # (N, C)
+    flat_lab = labels.ravel()              # (N,)
+
+    pos_idx = np.where(flat_lab == 1)[0]
+    neg_idx = np.where(flat_lab == 0)[0]
 
     rng = np.random.default_rng(seed)
-    idx = rng.choice(n_pixels, size=n_sample, replace=False)
+    n_neg_sample = max(1, int(len(neg_idx) * sample_rate))
+    neg_chosen = rng.choice(neg_idx, size=n_neg_sample, replace=False)
 
-    X = features.reshape(C, -1).T[idx]  # (N, C)
-    y = labels.ravel()[idx]              # (N,)
-    return X, y
+    idx = np.concatenate([pos_idx, neg_chosen])
+    rng.shuffle(idx)
+
+    return flat_feat[idx], flat_lab[idx]
 
 
 def extract_patches(

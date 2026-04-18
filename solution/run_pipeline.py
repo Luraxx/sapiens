@@ -270,6 +270,20 @@ def build_features_for_tile(
         except Exception as e:
             logger.warning(f"  {tile_id}: AEF error: {e}")
 
+    # ── Spatial context: local texture for key features ─────────────
+    from scipy.ndimage import uniform_filter
+    name_to_layer_tmp = dict(zip(feature_names, feature_layers))
+    spatial_keys = ["aef_l2_dist", "aef_cosine_dist", "aef_diff_d22",
+                    "s2_ndmi_min", "s2_raw_swir1_p10"]
+    for skey in spatial_keys:
+        if skey in name_to_layer_tmp:
+            arr = name_to_layer_tmp[skey].astype(np.float64)
+            local_mean = uniform_filter(arr, size=5)
+            local_sq = uniform_filter(arr ** 2, size=5)
+            local_std = np.sqrt(np.maximum(local_sq - local_mean ** 2, 0)).astype(np.float32)
+            feature_layers.append(local_std)
+            feature_names.append(f"{skey}_tex5")
+
     if not feature_layers:
         logger.warning(f"  {tile_id}: no features built")
         return None
@@ -303,6 +317,10 @@ def build_features_for_tile(
     CANONICAL_FEATURES.append("aef_l2_dist")
     CANONICAL_FEATURES.append("aef_max_yoy_l2")
     CANONICAL_FEATURES.append("aef_yoy_l2_std")
+    # Spatial texture features
+    for skey in ["aef_l2_dist", "aef_cosine_dist", "aef_diff_d22",
+                 "s2_ndmi_min", "s2_raw_swir1_p10"]:
+        CANONICAL_FEATURES.append(f"{skey}_tex5")
 
     name_to_layer = dict(zip(feature_names, feature_layers))
     ordered_layers = []
@@ -384,8 +402,9 @@ def build_labels_for_tile(tile_id: str, ref_meta: dict) -> np.ndarray | None:
     if len(label_sources) == 1:
         return label_sources[0]
 
-    # Fuse: use majority vote if 3 sources, else just agreement of 2
-    min_v = min(LABEL_FUSION_MIN_VOTES, len(label_sources))
+    # Fuse: for 2-source tiles use union (min_votes=1) to avoid overly strict intersection;
+    # for 3+ source tiles use majority vote (min_votes=2)
+    min_v = 1 if len(label_sources) == 2 else min(LABEL_FUSION_MIN_VOTES, len(label_sources))
     fused = majority_vote(*label_sources, min_votes=min_v)
     pos = fused.sum()
     total = fused.size
@@ -472,16 +491,28 @@ def main():
         pickle.dump(model, f)
     logger.info(f"Model saved to {model_path}")
 
-    # Validation metrics
+    # Validation metrics + threshold sweep
     y_prob = predict_lightgbm(model, X_val)
-    y_pred = (y_prob >= 0.5).astype(np.uint8)
+    best_f1, best_threshold = 0, 0.5
+    for t in np.arange(0.20, 0.65, 0.02):
+        yp = (y_prob >= t).astype(np.uint8)
+        tp = ((yp == 1) & (y_val == 1)).sum()
+        fp = ((yp == 1) & (y_val == 0)).sum()
+        fn = ((yp == 0) & (y_val == 1)).sum()
+        p = tp / (tp + fp + 1e-8)
+        r = tp / (tp + fn + 1e-8)
+        f = 2 * p * r / (p + r + 1e-8)
+        if f > best_f1:
+            best_f1, best_threshold = f, t
+    # Recompute with best threshold
+    y_pred = (y_prob >= best_threshold).astype(np.uint8)
     tp = ((y_pred == 1) & (y_val == 1)).sum()
     fp = ((y_pred == 1) & (y_val == 0)).sum()
     fn = ((y_pred == 0) & (y_val == 1)).sum()
     precision = tp / (tp + fp + 1e-8)
     recall = tp / (tp + fn + 1e-8)
     f1 = 2 * precision * recall / (precision + recall + 1e-8)
-    logger.info(f"Validation: F1={f1:.4f} | Precision={precision:.4f} | Recall={recall:.4f}")
+    logger.info(f"Validation: F1={f1:.4f} | Precision={precision:.4f} | Recall={recall:.4f} | Threshold={best_threshold:.2f}")
 
     del X_all, y_all, X_train, y_train, X_val, y_val
     gc.collect()
@@ -498,7 +529,7 @@ def main():
             continue
         features, ref_meta = result
 
-        pred = predict_tile_gbm(model, features, threshold=0.45)
+        pred = predict_tile_gbm(model, features, threshold=best_threshold)
 
         # Morphological post-processing: close small gaps, remove tiny isolated pixels
         from scipy.ndimage import binary_closing, binary_opening, label as ndlabel

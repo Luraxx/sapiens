@@ -55,5 +55,5 @@ DEFORESTATION_CUTOFF_YEAR = 2020
 # ── Model hyperparameters ─────────────────────────────────────────────────
 RANDOM_SEED = 42
 PATCH_SIZE = 64           # for U-Net patch extraction
-PIXEL_SAMPLE_RATE = 0.10  # fraction of pixels to sample for tabular model
+PIXEL_SAMPLE_RATE = 0.20  # fraction of negative pixels to sample (all positives kept)
 N_FOLDS = 5               # spatial cross-validation folds

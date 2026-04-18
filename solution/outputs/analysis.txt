@@ -1,0 +1,259 @@
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/run_pipeline.py:266: RuntimeWarning: All-NaN slice encountered
+  feature_layers.append(np.nan_to_num(np.nanmax(yoy_stack, axis=0), nan=0.0))
+/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/.venv/lib/python3.11/site-packages/numpy/lib/nanfunctions.py:1879: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+2026-04-18 02:51:46,072 INFO solution.run_pipeline:   18NWG_6_6: 267 features, shape (1002, 1002)
+2026-04-18 02:51:46,371 INFO solution.run_pipeline:   18NWG_6_6: fused label — 269764/1004004 positive (26.87%)
+============================================================
+1) FEATURE IMPORTANCE
+============================================================
+
+Top 40 features by gain:
+     2399699.0  aef_diff_d22
+     1322466.9  aef_l2_dist
+      203328.1  aef_base_d22
+       90935.3  s2_ndmi_delta_min
+       88345.3  aef_yoy_l2_std
+       66546.5  aef_diff_d33
+       63018.3  aef_cosine_dist
+       53338.0  s2_raw_swir2_p10
+       47789.2  aef_diff_d59
+       38515.7  aef_base_d48
+       36329.5  aef_diff_d6
+       35586.2  aef_base_d61
+       33141.3  s2_raw_swir1_p25
+       30446.8  aef_diff_d0
+       28456.7  aef_base_d43
+       28035.8  aef_base_d44
+       26225.9  s2_ndmi_min
+       22055.6  aef_base_d51
+       20982.5  aef_base_d12
+       19680.6  aef_max_yoy_l2
+       19523.1  aef_base_d52
+       19373.3  aef_base_d0
+       19308.6  s2_raw_swir1_p10
+       19243.5  aef_base_d62
+       18827.8  s2_ndmi_std
+       18733.7  aef_base_d36
+       18303.6  s2_raw_red_trend
+       17983.2  aef_base_d3
+       17977.4  aef_diff_d60
+       17484.1  aef_diff_d21
+       17124.8  aef_diff_d2
+       16973.6  aef_diff_d4
+       16716.2  aef_base_d60
+       16450.7  aef_base_d6
+       15324.7  aef_base_d42
+       15266.8  s2_ndmi_max
+       14861.0  aef_diff_d37
+       14472.3  s2_nbr_trend
+       13395.5  aef_base_d23
+       13160.8  aef_base_d46
+
+Bottom 20 features (near zero importance):
+        3824.2  s2_evi_trend
+        3796.8  s1_vv_mean
+        3735.2  s2_nbr_p90
+        3724.9  s2_ndvi_median
+        3707.1  s2_evi_min
+        3684.1  s2_raw_swir2_min
+        3604.7  s2_evi_delta_ratio
+        3579.3  s2_raw_swir2_delta_mean
+        3453.4  s2_nbr_mean
+        3387.2  s2_evi_delta_mean
+        3369.0  s2_nbr_median
+        3362.5  s2_ndvi_delta_ratio
+        3348.0  s2_raw_red_min
+        3230.6  s2_nbr_delta_ratio
+        3223.2  s2_ndmi_p75
+        3093.7  s2_evi_mean
+        2889.5  s2_ndmi_median
+        2769.9  s2_evi_range
+        2758.9  s2_ndmi_mean
+        2699.8  s2_evi_std
+
+Importance by category (total gain):
+              aef_diff: total=   3098043.9  mean=   48406.9  n=64
+            aef_scalar: total=   1493511.1  mean=  373377.8  n=4
+              aef_base: total=    917364.3  mean=   14333.8  n=64
+          s2_raw_bands: total=    476342.4  mean=    7939.0  n=60
+            s2_indices: total=    459538.3  mean=    7659.0  n=60
+                 s1_vv: total=     86063.0  mean=    5737.5  n=15
+
+Importance by stat type (mean gain across all signals):
+              std: mean=   15893.6  total=    158936.4  n=10
+              p10: mean=   12928.1  total=    116353.2  n=9
+              min: mean=   11912.0  total=    214416.3  n=18
+            trend: mean=    9799.8  total=     88198.5  n=9
+              p25: mean=    8822.0  total=     79397.7  n=9
+              max: mean=    7670.1  total=    138062.5  n=18
+            range: mean=    6233.4  total=     56100.5  n=9
+              p90: mean=    5684.0  total=     51155.8  n=9
+              p75: mean=    5248.5  total=     47236.3  n=9
+           median: mean=    4568.0  total=     41112.1  n=9
+      delta_ratio: mean=    4554.4  total=     40989.4  n=9
+             mean: mean=    4351.7  total=     78330.4  n=18
+
+Zero-importance features: 0
+
+============================================================
+2) DATA AVAILABILITY PER TILE
+============================================================
+
+TRAIN (16 tiles):
+  18NWG_6_6: S2=72 (pre=12, post=60), S1=102, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  18NWH_1_4: S2=72 (pre=12, post=60), S1=102, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  18NWJ_8_9: S2=71 (pre=12, post=59), S1=102, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  18NWM_9_4: S2=72 (pre=12, post=60), S1=70, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  18NXH_6_8: S2=71 (pre=12, post=59), S1=102, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  18NXJ_7_6: S2=72 (pre=12, post=60), S1=102, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  18NYH_9_9: S2=72 (pre=12, post=60), S1=102, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  19NBD_4_4: S2=72 (pre=12, post=60), S1=59, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  47QMB_0_8: S2=72 (pre=12, post=60), S1=143, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  47QQV_2_4: S2=72 (pre=12, post=60), S1=144, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  48PUT_0_8: S2=72 (pre=12, post=60), S1=142, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  48PWV_7_8: S2=72 (pre=12, post=60), S1=143, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  48PXC_7_7: S2=72 (pre=12, post=60), S1=143, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  48PYB_3_6: S2=72 (pre=12, post=60), S1=144, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  48QVE_3_0: S2=72 (pre=12, post=60), S1=141, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  48QWD_2_2: S2=72 (pre=12, post=60), S1=141, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+
+TEST (5 tiles):
+  18NVJ_1_6: S2=71 (pre=12, post=59), S1=101, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  18NYH_2_1: S2=70 (pre=11, post=59), S1=102, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  33NTE_5_1: S2=72 (pre=12, post=60), S1=73, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+  47QMA_6_2: S2=60 (pre=0, post=60), S1=143, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2021, 2022, 2023, 2024, 2025]
+  48PWA_0_6: S2=70 (pre=12, post=58), S1=144, AEF=[2020, 2021, 2022, 2023, 2024, 2025], S2_years=[2020, 2021, 2022, 2023, 2024, 2025]
+
+============================================================
+3) LABEL STATISTICS & SOURCE AGREEMENT
+============================================================
+
+  18NWG_6_6 ((1002, 1002), 3 label sources):
+        radd:   345960 positive (34.458%)
+      glads2:   329312 positive (32.800%)
+       gladl:   159714 positive (15.908%)
+    ANY source positive: 447142 (44.536%)
+    Majority (>=2) agree: 269764 (26.869%)
+    ALL agree: 118080 (11.761%)
+
+  18NWH_1_4 ((1002, 1002), 3 label sources):
+        radd:    33459 positive (3.333%)
+      glads2:    23443 positive (2.335%)
+       gladl:     6561 positive (0.653%)
+    ANY source positive: 45900 (4.572%)
+    Majority (>=2) agree: 13673 (1.362%)
+    ALL agree: 3890 (0.387%)
+
+  18NWJ_8_9 ((1002, 1002), 3 label sources):
+        radd:    64762 positive (6.450%)
+      glads2:    74987 positive (7.469%)
+       gladl:    17328 positive (1.726%)
+    ANY source positive: 111866 (11.142%)
+    Majority (>=2) agree: 37560 (3.741%)
+    ALL agree: 7651 (0.762%)
+
+  18NWM_9_4 ((1004, 2), 3 label sources):
+        radd:        0 positive (0.000%)
+      glads2:        0 positive (0.000%)
+       gladl:       13 positive (0.647%)
+    ANY source positive: 13 (0.647%)
+    Majority (>=2) agree: 0 (0.000%)
+    ALL agree: 0 (0.000%)
+
+  18NXH_6_8 ((1002, 1002), 3 label sources):
+        radd:   180290 positive (17.957%)
+      glads2:   349556 positive (34.816%)
+       gladl:   183811 positive (18.308%)
+    ANY source positive: 379492 (37.798%)
+    Majority (>=2) agree: 228456 (22.754%)
+    ALL agree: 105709 (10.529%)
+
+  18NXJ_7_6 ((1004, 1004), 3 label sources):
+        radd:    13065 positive (1.296%)
+      glads2:    21690 positive (2.152%)
+       gladl:    11051 positive (1.096%)
+    ANY source positive: 31689 (3.144%)
+    Majority (>=2) agree: 10984 (1.090%)
+    ALL agree: 3133 (0.311%)
+
+  18NYH_9_9 ((6, 4), 3 label sources):
+        radd:        0 positive (0.000%)
+      glads2:        0 positive (0.000%)
+       gladl:        0 positive (0.000%)
+    ANY source positive: 0 (0.000%)
+    Majority (>=2) agree: 0 (0.000%)
+    ALL agree: 0 (0.000%)
+
+  19NBD_4_4 ((1006, 1006), 3 label sources):
+        radd:    15423 positive (1.524%)
+      glads2:   113954 positive (11.260%)
+       gladl:    51121 positive (5.051%)
+    ANY source positive: 123654 (12.218%)
+    Majority (>=2) agree: 52776 (5.215%)
+    ALL agree: 4068 (0.402%)
+
+  47QMB_0_8 ((1012, 986), 2 label sources):
+        radd:     6902 positive (0.692%)
+       gladl:     7737 positive (0.775%)
+    ANY source positive: 14125 (1.416%)
+    Majority (>=2) agree: 514 (0.052%)
+    ALL agree: 514 (0.052%)
+
+  47QQV_2_4 ((1024, 1023), 2 label sources):
+        radd:    10877 positive (1.038%)
+       gladl:     3839 positive (0.366%)
+    ANY source positive: 14389 (1.374%)
+    Majority (>=2) agree: 327 (0.031%)
+    ALL agree: 327 (0.031%)
+
+  48PUT_0_8 ((1012, 1006), 2 label sources):
+        radd:   102484 positive (10.066%)
+       gladl:    34974 positive (3.435%)
+    ANY source positive: 115306 (11.326%)
+    Majority (>=2) agree: 22152 (2.176%)
+    ALL agree: 22152 (2.176%)
+
+  48PWV_7_8 ((1006, 1006), 2 label sources):
+        radd:   516279 positive (51.014%)
+       gladl:   275903 positive (27.262%)
+    ANY source positive: 544498 (53.802%)
+    Majority (>=2) agree: 247684 (24.474%)
+    ALL agree: 247684 (24.474%)
+
+  48PXC_7_7 ((1016, 1016), 2 label sources):
+        radd:   146916 positive (14.233%)
+       gladl:    92459 positive (8.957%)
+    ANY source positive: 173088 (16.768%)
+    Majority (>=2) agree: 66287 (6.422%)
+    ALL agree: 66287 (6.422%)
+
+  48PYB_3_6 ((1020, 1020), 2 label sources):
+        radd:   242513 positive (23.310%)
+       gladl:   131927 positive (12.680%)
+    ANY source positive: 256650 (24.668%)
+    Majority (>=2) agree: 117790 (11.322%)
+    ALL agree: 117790 (11.322%)
+
+  48QVE_3_0 ((1008, 1008), 2 label sources):
+        radd:   173135 positive (17.040%)
+       gladl:    93501 positive (9.202%)
+    ANY source positive: 198555 (19.542%)
+    Majority (>=2) agree: 68081 (6.700%)
+    ALL agree: 68081 (6.700%)
+
+  48QWD_2_2 ((1004, 1003), 2 label sources):
+        radd:   151382 positive (15.033%)
+       gladl:    97425 positive (9.675%)
+    ANY source positive: 189078 (18.776%)
+    Majority (>=2) agree: 59729 (5.931%)
+    ALL agree: 59729 (5.931%)
+
+============================================================
+4) CLASS BALANCE ANALYSIS
+============================================================
+Traceback (most recent call last):
+  File "/Users/luisdehlwes/Documents/osapiens/makeathon-challenge-2026/solution/analyze.py", line 216, in <module>
+    print(f"  {tid}: pos={pos:>8d}, neg={neg:>8d}, ratio={pct:.2f}%")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'd' for object of type 'float'
